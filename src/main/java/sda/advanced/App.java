@@ -1,5 +1,6 @@
 package sda.advanced;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
@@ -28,6 +29,27 @@ public class App
         stringIntegerMap.put("Damian" , 1);
         stringIntegerMap.put("Nguyen" , 2);
         printMap(stringIntegerMap);
+        //Task 5
+        Storage storage = new Storage();
+        storage.addToStorage("Phone", "iPhone");
+        storage.addToStorage("Phone", "Samsung Galaxy S1");
+        storage.addToStorage("Phone", "Samsung Galaxy S2");
+        storage.addToStorage("Computer", "Macbook Air");
+        storage.printValues("Phone");
+        storage.printValues("Computer");
+        //Task 6
+        LocalDate date = LocalDate.of(1993, 7,8);
+        try {
+            AgeValidator.validate(date);
+        } catch (UnderageException e) {
+            System.err.println(e.getMessage());
+        }
+        date = LocalDate.of(2010, 7,8);
+        try {
+            AgeValidator.validate(date);
+        } catch (UnderageException e) {
+            System.err.println(e.getMessage());
+        }
     }
 
 //    Utwórz listę 1_000_000 randomowo wygenerowanych intów w zakresie od 0 do 1_000_000 . Następnie przefiltruj
